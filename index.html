@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sagorika — Product Manager</title>
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color:#111;
+      background:#fff;
+      font-size:17px;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* ---------- Navbar ---------- */
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;            /* white background */
+  border-bottom: 2px solid #0a66c2; /* prominent bottom border */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* subtle shadow for depth */
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);  /* optional frosted look if page has background */
+}
+
+/* Optional: slightly increase spacing inside nav */
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* links to the right */
+  gap: 2rem;
+}
+
+/* Navigation links styling */
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0a66c2; /* make them more prominent */
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.nav-links a:hover {
+  background: #004182; /* dark blue background on hover */
+  color: #fff;         /* white text on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+    /* ---------- Hero ---------- */
+    .hero{min-height:78vh;display:flex;align-items:center;justify-content:center;padding:3rem 1rem;text-align:center}
+    .hero-inner{max-width:1000px;display:flex;gap:2rem;align-items:center;justify-content:center;flex-wrap:wrap}
+    .hero-photo{flex:0 0 140px}
+    .hero-photo img{width:140px;height:auto;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+    .hero-content{flex:1;min-width:250px}
+    .hero h1{font-size:2.6rem;margin-bottom:.25rem;color:#111}
+    .subtitle{font-size:1.1rem;color:#555;margin-bottom:0.6rem;font-weight:600}
+    .description{color:#444;margin-bottom:1rem;max-width:620px;margin-left:auto;margin-right:auto}
+    .cta-buttons{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:.6rem}
+    .btn{padding:10px 18px;border-radius:999px;border:0;font-weight:700;display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;cursor:pointer}
+    .btn-primary{background:#0a66c2;color:#fff}
+    .btn-primary:hover{background:#004182}
+    .btn-secondary{background:#fff;border:2px solid #0a66c2;color:#0a66c2}
+    .btn-secondary:hover{background:#0a66c2;color:#fff}
+
+    /* ---------- Section ---------- */
+    .section{padding:60px 0}
+    .section-title{text-align:center;margin-bottom:2rem}
+    .section-title h2{font-size:1.8rem;color:#0a66c2;margin-bottom:.3rem}
+    .section-title p{color:#555;font-size:0.95rem}
+
+    /* ---------- Skills ---------- */
+    .skills-grid{display:flex;flex-direction:column;gap:1rem;max-width:900px;margin:0 auto}
+    .skill-category{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:1.2rem;transition:box-shadow .2s}
+    .skill-category:hover{box-shadow:0 8px 30px rgba(10,102,194,0.06)}
+    .skill-category h4{color:#0a66c2;text-align:center;margin-bottom:.8rem}
+    .pill{display:inline-block;background:#0a66c2;color:#fff;padding:6px 12px;border-radius:999px;font-size:0.9rem;margin:6px}
+
+    /* ---------- Experience & Projects ---------- */
+    .experience-grid{display:flex;flex-direction:column;gap:1.25rem;max-width:1000px;margin:0 auto}
+    .experience-card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:1.25rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .experience-card::before{content:"";position:absolute;left:0;top:0;width:6px;height:100%;background:linear-gradient(180deg,#0a66c2,#004182)}
+    .experience-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(10,102,194,0.08)}
+    .experience-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:.7rem}
+    .experience-header h3{color:#0a66c2;display:flex;align-items:center;gap:.5rem}
+    .experience-description{color:#4b5563;margin-bottom:.8rem}
+    .feature-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.5rem;padding-left:0;margin-bottom:.75rem}
+    .feature-list li{position:relative;padding-left:1rem;color:#6b7280}
+    .feature-list li::before{content:"•";color:#0a66c2;position:absolute;left:0}
+    .technologies{display:flex;flex-wrap:wrap;gap:.5rem}
+    .tech-pill{background:#f3f4f6;padding:6px 12px;border-radius:20px;border:1px solid #e5e7eb;font-weight:600}
+
+    .btn-link{display:inline-block;background:#0a66c2;color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(10,102,194,0.12)}
+    .btn-link:hover{background:#004182;transform:translateY(-2px)}
+
+    /* ---------- Video ---------- */
+    .video-section{background:#f9f9f9;padding:48px 0;text-align:center}
+    .video-section iframe{width:100%;max-width:900px;height:480px;border-radius:12px;border:0}
+
+    /* ---------- Testimonials ---------- */
+    .testimonials{background:#fafafa;padding:56px 0}
+    .testimonial-quotes{max-width:800px;margin-left:auto;margin-right:auto}
+    .testimonial-quotes blockquote{background:#fff;border-left:4px solid #0a66c2;padding:1rem;border-radius:8px;margin-bottom:1rem;box-shadow:0 6px 18px rgba(0,0,0,0.04);font-style:italic;color:#333}
+
+    /* ---------- Contact ---------- */
+    .contact{background:#fafafa;display:flex;align-items:center;justify-content:center}
+    .contact-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,0.06);max-width:780px;text-align:center}
+    .contact-buttons{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;margin-top:1rem}
+
+    /* ---------- Footer ---------- */
+    .footer{background:#111;color:#fff;text-align:center;padding:1rem 0;margin-top:2rem}
+
+    /* ---------- Fade-in util ---------- */
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .visible{opacity:1;transform:none}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){
+      .hero-inner{gap:1rem}
+      .video-section iframe{height:320px}
+    }
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .hero{padding:2rem 1rem}
+      .container{padding:0 12px}
+      .experience-grid{gap:1rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-content">
+    <ul class="nav-links" role="menu">
+      <li><a href="#home" role="menuitem">Home</a></li>
+      <li><a href="#skills" role="menuitem">Skills</a></li>
+      <li><a href="#video" role="menuitem">Video</a></li>
+      <li><a href="#experience" role="menuitem">Experience</a></li>
+      <li><a href="#projects" role="menuitem">Projects</a></li>
+      <li><a href="#testimonials" role="menuitem">Testimonials</a></li>
+      <li><a href="#contact" role="menuitem">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="hero fade-in" role="banner">
+  <div class="container">
+    <div class="section-title" style="margin-bottom:1.5rem;">
+      <h1>Sagorika </h1>
+      <p class="subtitle">Product Manager</p>
+      <p>Product Manager with 3.5+ years in IT & EdTech, skilled in product lifecycle, agile, data analytics, and AI-driven innovation.</p>
+    </div>
+    <div class="cta-buttons" role="group" aria-label="Primary actions">
+      <a class="btn btn-primary" href="#contact"><span aria-hidden="true">💬</span> Get In Touch</a>
+      <a class="btn btn-secondary" href="https://drive.google.com/file/d/1YzyM952Rk_yXcmys_ai02bNhEBZ_gKUO/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📄</span> View / Download CV</a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/sagorika/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔗</span> LinkedIn</a>
+    </div>
+  </div>
+
+  <style>
+    .hero {
+      width: 100%;
+      background: #f9f9f9; /* light background like video section */
+      padding: 3rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(10,102,194,0.06); /* subtle shadow */
+      margin-bottom: 2rem; /* spacing before next section */
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      color: #0a66c2;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #444;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-buttons a.btn {
+      min-width: 140px;
+    }
+
+    @media(max-width:640px){
+      .hero {
+        padding: 2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .hero p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</header>
+
+<!-- SKILLS SECTION -->
+<section id="skills" class="section fade-in">
+  <div class="container">
+    <div class="section-title" style="text-align:center">
+      <h2>Skills & Competencies</h2>
+      <p>Technical, Core, and AI expertise</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h4>Technical Skills</h4>
+        <div style="text-align:center">
+          <span class="pill">Product roadmapping</span>
+          <span class="pill">Agile Framework</span>
+          <span class="pill">SCRUM</span>
+          <span class="pill">Data Analysis</span>
+          <span class="pill">Google Analytics</span>
+          <span class="pill">MS Excel</span>
+          <span class="pill">UI/UX Design</span>
+          <span class="pill">Canva</span>
+          <span class="pill">Wireframing</span>
+          <span class="pill">Play Console</span>
+          <span class="pill">API & KPI</span>
+          <span class="pill">Google Play & iOS App Store Listing</span>
+          <span class="pill">ASANA</span>
+          <span class="pill">JIRA</span>
+          <span class="pill">Website management</span>
+          <span class="pill">SaaS products</span>
+          <span class="pill">Prototyping</span>
+          <span class="pill">MVP features</span>
+          <span class="pill">Product Landing Pages</span>
+          <span class="pill">GTM</span>
+          <span class="pill">BRD</span>
+          <span class="pill">PRD</span>
+          <span class="pill">API Integration</span>
+          <span class="pill">KPI Tracking</span>
+          <span class="pill">A/B Tests</span>
+          <span class="pill">UAT</span>
+          <span class="pill">SEO</span>
+          <span class="pill">ASO</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h4>Core Competencies</h4>
+        <div style="text-align:center">
+          <span class="pill">Strategic Planning</span>
+          <span class="pill">Data-Driven Decision Making</span>
+          <span class="pill">Cross-Functional Collaboration</span>
+          <span class="pill">User-Focused Design</span>
+          <span class="pill">Technical Documentation</span>
+          <span class="pill">Mobile App Development</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h4>AI Knowledge</h4>
+        <div style="text-align:center">
+          <span class="pill">WhimsicalAI</span>
+          <span class="pill">Claude Opus 4.1</span>
+          <span class="pill">Gemini</span>
+          <span class="pill">Sora</span>
+          <span class="pill">ChatGPT</span>
+          <span class="pill">Lovable</span>
+          <span class="pill">Bolt</span>
+          <span class="pill">NotionAI</span>
+          <span class="pill">MidJourney</span>
+          <span class="pill">Stable Diffusion</span>
+          <span class="pill">Perplexity AI</span>
+          <span class="pill">Microsoft Copilot</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ---------- Hero Section Styles ---------- */
+.hero {
+  padding-top:120px; /* space below navbar */
+  padding-bottom:60px; /* reduced bottom space */
+  min-height:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:#fff;
+}
+
+.hero-content { max-width:650px; margin-bottom:0; }
+
+.hero h1 { font-size:2.6rem; margin-bottom:0.3rem; color:#111; }
+.subtitle { font-size:1.1rem; margin-bottom:0.5rem; color:#555; font-weight:600; }
+.description { margin-bottom:1.2rem; color:#444; line-height:1.5; }
+
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+/* Primary button */
+.btn-primary {
+  min-width:160px;
+  padding:14px 22px;
+  font-weight:800;
+  font-size:1rem;
+  border-radius:14px;
+  background:#fff; /* default white */
+  color:#0a66c2;   /* text like LinkedIn/CV */
+  border:2px solid #0a66c2;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 18px rgba(10,102,194,0.12);
+  transition: all 0.3s;
+}
+
+/* Hover */
+.btn-primary:hover {
+  background:#004182; /* dark blue */
+  color:#0a66c2;
+  box-shadow:0 8px 24px rgba(0,65,130,0.25);
+  transform:translateY(-2px);
+}
+
+/* Secondary buttons */
+.btn-secondary {
+  min-width:150px;
+  padding:12px 20px;
+  font-weight:700;
+  border-radius:12px;
+  border:2px solid #0a66c2;
+  color:#0a66c2;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background:#0a66c2;
+  color:#fff;
+  border-color:#0a66c2;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(10,102,194,0.2);
+}
+
+.btn-primary span,
+.btn-secondary span { display:block; margin:0.2rem 0; font-size:1.3rem; }
+
+/* Skills section pills */
+.pill { display:inline-block; background:#0a66c2; color:#fff; padding:6px 12px; border-radius:999px; font-size:0.9rem; margin:6px; }
+
+/* Responsive */
+@media (max-width:980px){
+  .hero h1 { font-size:2.2rem; }
+  .subtitle { font-size:1rem; }
+  .description { font-size:0.95rem; }
+  .hero { padding-top:100px; padding-bottom:50px; }
+}
+
+@media (max-width:640px){
+  .hero h1 { font-size:1.9rem; }
+  .subtitle { font-size:0.95rem; }
+  .description { font-size:0.9rem; }
+}
+</style>
+
+  <!-- VIDEO -->
+<section id="video" class="video-section fade-in" aria-labelledby="video-heading">
+  <div class="container">
+    <div class="section-title">
+      <div class="cta-buttons" role="group" aria-label="Video CTA" style="margin-bottom:1rem;">
+        <a class="btn btn-primary" href="#contact"><span aria-hidden="true">💬</span> Get In Touch</a>
+      </div>
+      <h2 id="video-heading">30 Second Pitch</h2>
+      <p>Meet Sagorika in 30 Seconds<br>A quick introduction to my journey from IT/EdTech Products to AI Product Management</p>
+    </div>
+    <iframe src="https://www.youtube.com/embed/f65gjJtRpOs" title="Sagorika — Product Highlights" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>Professional Experience</h2>
+        <p>Platforms and products I've worked on</p>
+      </div>
+
+      <div class="experience-grid">
+        <!-- TimesJobs -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">💼</span> TimesJobs</h3>
+            <div class="experience-tags">
+              <span class="tech-pill">Live</span>
+              <span class="tech-pill">Recruitment Tech</span>
+            </div>
+          </div>
+          <p class="experience-description">Led product strategy for recruitment platform redesign driving user engagement and business growth. Implemented data-driven features that enhanced job matching algorithms and improved recruiter-candidate interactions.</p>
+          <div class="key-features">
+            <h4>Key Achievements:</h4>
+            <ul class="feature-list">
+              <li>Product roadmap development and execution</li>
+              <li>User engagement optimization strategies</li>
+              <li>Cross-functional team leadership</li>
+              <li>Data analytics implementation</li>
+            </ul>
+          </div>
+          <div class="technologies">
+            <span class="tech-pill">Product Strategy</span>
+            <span class="tech-pill">Data Analytics</span>
+            <span class="tech-pill">Agile Framework</span>
+            <span class="tech-pill">User Research</span>
+          </div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://www.timesjobs.com" target="_blank" rel="noopener noreferrer">Visit Platform</a></div>
+        </div>
+
+        <!-- Exam Path Finder -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">🎓</span> Exam Path Finder</h3>
+            <div class="experience-tags">
+              <span class="tech-pill">Live</span>
+              <span class="tech-pill">EdTech</span>
+            </div>
+          </div>
+          <p class="experience-description">Scaled user base to 110K+ Monthly Active Users on EdTech platform. Developed comprehensive exam preparation solutions and career guidance systems for students across various competitive exams.</p>
+          <div class="key-features">
+            <h4>Key Achievements:</h4>
+            <ul class="feature-list">
+              <li>110K+ Monthly Active Users achieved</li>
+              <li>Mobile app development and optimization</li>
+              <li>Content management system implementation</li>
+              <li>User retention strategy development</li>
+            </ul>
+          </div>
+          <div class="technologies">
+            <span class="tech-pill">Mobile App Development</span>
+            <span class="tech-pill">User Growth</span>
+            <span class="tech-pill">Content Strategy</span>
+            <span class="tech-pill">Analytics</span>
+          </div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://exampathfinder.com" target="_blank" rel="noopener noreferrer">Visit Platform</a></div>
+        </div>
+
+        <!-- Outspark -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">🤖</span> Outspark</h3>
+            <div class="experience-tags">
+              <span class="tech-pill">Live</span>
+              <span class="tech-pill">AI Powered</span>
+            </div>
+          </div>
+          <p class="experience-description">Developed AI-powered resume builder and LinkedIn enhancement tools. Created intelligent career development solutions using machine learning algorithms for personalized professional growth recommendations.</p>
+          <div class="key-features">
+            <h4>Key Achievements:</h4>
+            <ul class="feature-list">
+              <li>AI-powered resume optimization engine</li>
+              <li>LinkedIn profile enhancement tools</li>
+              <li>Machine learning integration</li>
+              <li>SaaS product development</li>
+            </ul>
+          </div>
+          <div class="technologies">
+            <span class="tech-pill">AI Integration</span>
+            <span class="tech-pill">SaaS Development</span>
+            <span class="tech-pill">Machine Learning</span>
+            <span class="tech-pill">API Development</span>
+          </div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://myoutspark.com" target="_blank" rel="noopener noreferrer">Visit Platform</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section fade-in">
+    <div class="container">
+      <div class="section-title">
+        <h2>AI Projects & Innovations</h2>
+        <p>Personal AI-powered projects and tools</p>
+      </div>
+
+      <div class="experience-grid">
+        <!-- Background Remover -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">✨</span> Background Remover</h3>
+            <div class="experience-tags"><span class="tech-pill">Live</span><span class="tech-pill">AI Tool</span></div>
+          </div>
+          <p class="experience-description">AI-powered tool that instantly removes image backgrounds with high precision. Built using advanced computer vision algorithms for seamless background removal and image processing.</p>
+          <div class="key-features">
+            <h4>Key Features:</h4>
+            <ul class="feature-list">
+              <li>Instant background removal</li>
+              <li>High-precision edge detection</li>
+              <li>Multiple image format support</li>
+              <li>Real-time processing</li>
+            </ul>
+          </div>
+          <div class="technologies"><span class="tech-pill">Computer Vision</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Canvas API</span></div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://sagorikaproduct.github.io/background-remover/" target="_blank" rel="noopener noreferrer">View Live Demo</a></div>
+        </div>
+
+        <!-- Text-to-Speech -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">🔊</span> Text-to-Speech App</h3>
+            <div class="experience-tags"><span class="tech-pill">Live</span><span class="tech-pill">Speech AI</span></div>
+          </div>
+          <p class="experience-description">Convert text into natural-sounding speech with customizable voice options. Features multiple language support and voice modulation for enhanced accessibility and user experience.</p>
+          <div class="key-features">
+            <h4>Key Features:</h4>
+            <ul class="feature-list">
+              <li>Natural speech synthesis</li>
+              <li>Multiple voice options</li>
+              <li>Speed and pitch control</li>
+              <li>Multi-language support</li>
+            </ul>
+          </div>
+          <div class="technologies"><span class="tech-pill">Web Speech API</span><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML5</span></div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://sagorikaproduct.github.io/text-to-speech-app/" target="_blank" rel="noopener noreferrer">View Live Demo</a></div>
+        </div>
+
+        <!-- Cosmic Insights -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">⭐</span> Cosmic Insights</h3>
+            <div class="experience-tags"><span class="tech-pill">Live</span><span class="tech-pill">Dashboard</span></div>
+          </div>
+          <p class="experience-description">Personalized Kundali dashboard with astrological insights and life predictions. Combines ancient wisdom with modern UI/UX design for an immersive spiritual experience.</p>
+          <div class="key-features">
+            <h4>Key Features:</h4>
+            <ul class="feature-list">
+              <li>Personalized astrological charts</li>
+              <li>Interactive dashboard design</li>
+              <li>Life insights and predictions</li>
+              <li>Responsive user interface</li>
+            </ul>
+          </div>
+          <div class="technologies"><span class="tech-pill">Dashboard Design</span><span class="tech-pill">Data Visualization</span></div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://sagorikaproduct.github.io/Cosmic-Insights-Kundali-Life-Dashboard/" target="_blank" rel="noopener noreferrer">View Live Demo</a></div>
+        </div>
+
+        <!-- FitFlow -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">🏋️‍♀️</span> FitFlow</h3>
+            <div class="experience-tags"><span class="tech-pill">Live</span><span class="tech-pill">Fitness Tech</span></div>
+          </div>
+          <p class="experience-description">Fitness tracking app with personalized workout and health routine planning. Helps users build consistent exercise habits with AI-driven insights.</p>
+          <div class="key-features">
+            <h4>Key Features:</h4>
+            <ul class="feature-list">
+              <li>Custom workout plans</li>
+              <li>Health routine tracking</li>
+              <li>User progress visualization</li>
+              <li>Mobile-first responsive design</li>
+            </ul>
+          </div>
+          <div class="technologies"><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML5</span></div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://sagorikaproduct.github.io/FitFlow/" target="_blank" rel="noopener noreferrer">View Live Demo</a></div>
+        </div>
+
+        <!-- QuizMaster -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">❓</span> QuizMaster</h3>
+            <div class="experience-tags"><span class="tech-pill">Live</span><span class="tech-pill">EdTech</span></div>
+          </div>
+          <p class="experience-description">Interactive quiz app with instant scoring and progress tracking. Engages users with gamified learning experiences.</p>
+          <div class="key-features">
+            <h4>Key Features:</h4>
+            <ul class="feature-list">
+              <li>Real-time quiz scoring</li>
+              <li>Progress tracking dashboard</li>
+              <li>Interactive and gamified learning</li>
+              <li>Multi-device compatibility</li>
+            </ul>
+          </div>
+          <div class="technologies"><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML5</span></div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://sagorikaproduct.github.io/QuizMaster/" target="_blank" rel="noopener noreferrer">View Live Demo</a></div>
+        </div>
+
+        <!-- Smart Calculator -->
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3><span aria-hidden="true">🧮</span> Smart Calculator</h3>
+            <div class="experience-tags"><span class="tech-pill">Live</span><span class="tech-pill">Utility Tool</span></div>
+          </div>
+          <p class="experience-description">A simple yet powerful web-based calculator for quick and accurate math operations. Designed for everyday use with a clean and intuitive UI.</p>
+          <div class="key-features">
+            <h4>Key Features:</h4>
+            <ul class="feature-list">
+              <li>Basic arithmetic operations</li>
+              <li>Responsive and user-friendly design</li>
+              <li>Lightweight and fast performance</li>
+              <li>Cross-browser compatibility</li>
+            </ul>
+          </div>
+          <div class="technologies"><span class="tech-pill">JavaScript</span><span class="tech-pill">HTML5</span></div>
+          <div style="margin-top:.6rem"><a class="btn-link" href="https://sagorikaproduct.github.io/Smart-Calculator/" target="_blank" rel="noopener noreferrer">View Live Demo</a></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- FUN BREAK: TIC TAC TOE -->
+<section id="fun-break" class="fun-break fade-in" aria-labelledby="fun-break-heading">
+  <style>
+    .fun-break {
+      background: #f9f9f9; /* subtle, portfolio-friendly light gray */
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 60px 0;
+      text-align: center;
+      position: relative;
+    }
+    .fun-break h2 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: #0a66c2;
+    }
+    .fun-break h3 {
+      font-size: 1.5rem;
+      margin-top: 0.75rem;
+      color: #333;
+    }
+    .fun-break p { color: #555; margin: 0.25rem 0; }
+    .player-info { font-weight: 600; color: #333; margin-bottom: 10px; }
+    .tic-tac-toe {
+      display: flex; flex-direction: column; align-items: center; margin-top: 1rem; position: relative;
+    }
+    .board {
+      display: grid; grid-template-columns: repeat(3, 100px); gap: 8px; margin-bottom: 1rem;
+    }
+    .cell {
+      width: 100px; height: 100px; background: #fff; border: 2px solid #0a66c2; border-radius: 12px;
+      font-size: 2rem; font-weight: bold; color: #0a66c2; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.3s;
+    }
+    .cell:hover { background: rgba(10, 102, 194, 0.08); }
+    .status-box {
+      background: #fff; border: 2px solid #0a66c2; border-radius: 10px;
+      padding: 12px 20px; font-weight: 700; color: #0a66c2; min-width: 220px; margin-bottom: 12px;
+    }
+    .fun-break button {
+      min-width: 140px; padding: 10px 18px; font-weight: 700; border: 2px solid #0a66c2; border-radius: 10px;
+      background: #fff; color: #0a66c2; cursor: pointer; transition: all 0.3s; margin-top: 8px;
+    }
+    .fun-break button:hover { background: #0a66c2; color: #fff; transform: translateY(-2px); }
+    #confetti-canvas {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;
+    }
+    .win-line {
+      position: absolute;
+      background: #0a66c2;
+      height: 4px;
+      width: 0;
+      transform-origin: left center;
+      transition: width 0.5s ease;
+      z-index: 3;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  </style>
+
+  <canvas id="confetti-canvas"></canvas>
+  <div class="container">
+    <div class="section-title">
+      <h2 id="fun-break-heading">🎉 Fun Break</h2>
+      <p><span id="games-count">1</span> game played so far!</p>
+      <h3>Let's Play Tic Tac Toe</h3>
+      <p>"It seems you're confused with my portfolio — let's lighten the mood. Let's play Tic Tac Toe."</p>
+    </div>
+    <div class="player-info">👤 You are <strong>X</strong> • 💻 Computer is <strong>O</strong></div>
+    <div class="tic-tac-toe">
+      <div id="status" class="status-box">Your Turn (X)</div>
+      <div class="board" id="board">
+        <div class="cell" data-index="0"></div><div class="cell" data-index="1"></div><div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div><div class="cell" data-index="4"></div><div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div><div class="cell" data-index="7"></div><div class="cell" data-index="8"></div>
+        <div class="win-line" id="win-line"></div>
+      </div>
+      <button id="restart">Reset Game</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (no images) -->
+<section id="testimonials" class="testimonials fade-in">
+  <div class="container">
+    <div class="section-title">
+      <h2>Testimonials</h2>
+      <p>What Leaders Say</p>
+      <p>Feedback from managers and colleagues who have witnessed my impact firsthand.</p>
+    </div>
+
+    <div class="testimonial-quotes">
+      <blockquote>“I’ve seen her lead product revamps with clarity—especially on the TimesJobs app where her user-first thinking directly contributed to a noticeable improvement in retention and app reviews.”</blockquote>
+
+      <blockquote>“During the launch of the AI resume tool, she was quick to translate fuzzy ideas into solid user flows and always ensured deadlines were realistic and met.”</blockquote>
+
+      <blockquote>“Her approach to building the exam alert platform was practical and user-centric. She knew how to keep things moving without overcomplicating them.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact fade-in">
+  <div class="container contact-box">
+    <div class="section-title">
+      <h2>Get In Touch</h2>
+      <p>Let's Build Something Amazing Together</p>
+    </div>
+    <p>Whether you're looking to collaborate on AI products, need product strategy insights, or just want to chat about the future of human-AI interaction, I'd love to connect.</p>
+    
+    <div class="contact-buttons" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+
+      <!-- Email Button -->
+      <a href="mailto:sagorikarai2@gmail.com" class="contact-btn btn-primary">
+        <span class="icon" aria-hidden="true">✉️</span>
+        <span>Email</span>
+        <span style="font-size:0.85rem;">sagorikarai2@gmail.com</span>
+      </a>
+
+      <!-- LinkedIn Button -->
+      <a href="https://www.linkedin.com/in/sagorika-product/" target="_blank" rel="noopener noreferrer" class="contact-btn btn-secondary">
+        <span class="icon" aria-hidden="true">🔗</span>
+        <span>LinkedIn</span>
+      </a>
+
+      <!-- Download CV Button -->
+      <a href="https://drive.google.com/uc?export=download&id=1YzyM952Rk_yXcmys_ai02bNhEBZ_gKUO" target="_blank" rel="noopener noreferrer" class="contact-btn btn-secondary">
+        <span class="icon" aria-hidden="true">⬇️</span>
+        <span>Download CV</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Common square button style */
+  .contact-btn {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    width:180px;
+    height:180px;
+    border-radius:12px;
+    padding:1rem;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+    text-decoration:none;
+    border:2px solid #0a66c2; /* Outline visible */
+    background:#fff; /* Default light background */
+    color:#0a66c2;
+  }
+
+  /* Icon size */
+  .contact-btn .icon {
+    font-size:2rem;
+    margin-bottom:0.5rem;
+  }
+
+  /* Email button (primary) */
+  .btn-primary {
+    background:#f3f4f6;
+  }
+
+  /* Hover effect for all buttons */
+  .contact-btn:hover {
+    background:#0a66c2;
+    color:#fff;
+    border-color:#0a66c2;
+  }
+
+  /* Ensure text inside button changes color on hover */
+  .contact-btn:hover span {
+    color:#fff;
+  }
+
+  /* Spacing inside buttons for text */
+  .contact-btn span {
+    display:block;
+    margin:0.2rem 0;
+  }
+</style>
+
+  <!-- FOOTER -->
+  <footer class="footer">&copy; 2025 Sagorika — Product Manager</footer>
+
+  <!-- SCRIPTS: fade-in observer -->
+  <script>
+    (function(){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
