@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sagorika — Product Manager | Fintech, Logistics & AI Products</title>
-<meta name="description" content="Product Manager with 4.7 years across fintech, logistics, EdTech and AI. Building fuel card, FASTag, GPS tracking and AI CRM products at TrucksUp.">
+<meta name="description" content="Every product I build starts with a problem nobody wants to touch. I push it all the way to launch, and live for the day it works.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -182,6 +182,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
 .timeline.in{background-size:2px 100%}
 .job::before{animation:ping 2.6s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 5px var(--bg),0 0 0 5px rgba(124,92,255,.6)}100%{box-shadow:0 0 0 5px var(--bg),0 0 0 18px rgba(124,92,255,0)}}
+.ic svg{width:28px;height:28px;stroke:var(--b);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
 .proj .ic{display:inline-block;transition:transform .4s}
 .proj:hover .ic{transform:rotate(-12deg) scale(1.25)}
 .shot img{transition:transform .8s}
@@ -193,7 +194,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
 .marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--bg2);padding:16px 0}
 .marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 32s linear infinite;font-family:"Space Grotesk";font-weight:700;font-size:1.15rem;color:var(--muted);white-space:nowrap}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track span::after{content:"✦";margin-left:44px;color:var(--b)}
+.marquee-track span::after{content:"";margin-left:44px;color:var(--b)}
 @keyframes scroll{to{transform:translateX(-50%)}}
 .cell{animation:pop .3s}
 @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
@@ -202,6 +203,21 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
   .reveal,.hero-in{opacity:1!important;transform:none!important}
   html{scroll-behavior:auto}
 }
+
+/* ===== hero: thinker + think cards ===== */
+.thinker{margin:0 0 26px}
+.thinker-line{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700}
+#rot{display:inline-block;transition:opacity .35s,transform .35s}
+#rot.out{opacity:0;transform:translateY(10px)}
+.thinks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.think{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:transform .35s,border-color .35s,box-shadow .35s,opacity .7s}
+.think:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--b);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.think .ic{font-size:1.6rem;display:inline-block;transition:transform .4s}
+.think:hover .ic{transform:scale(1.25) rotate(-10deg)}
+.think h4{margin:10px 0 6px;font-size:1.02rem}
+.think p{font-size:.88rem;color:var(--muted)}
+@media(max-width:900px){.thinks{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.thinks{grid-template-columns:1fr}}
 
 /* ===== logistics & fintech video ===== */
 .lf-wrap{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
@@ -213,6 +229,15 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
 .lf-card p{font-size:.88rem;color:var(--muted)}
 .pitch{max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 30px 70px rgba(124,92,255,.3);border:1px solid var(--line)}
 .pitch iframe{width:100%;height:100%;border:0;display:block}
+.pitch-poster{position:relative;display:grid;place-items:center;width:100%;height:100%;background:radial-gradient(circle at 30% 20%,#2b2370,#0b0d17 70%);overflow:hidden}
+.pp-text{position:absolute;left:28px;bottom:26px;display:grid;gap:4px;color:#fff;z-index:1;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.pp-text small{letter-spacing:.2em;color:var(--b);font-weight:600;font-size:.75rem}
+.pp-text b{font-family:"Space Grotesk";font-size:clamp(1.4rem,4vw,2.4rem)}
+.pp-text em{font-style:normal;color:#cfd3ff;font-size:.9rem}
+.pitch-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pitch-poster:hover img{transform:scale(1.03)}
+.pitch-poster .play{position:relative;z-index:2;width:84px;height:60px;border-radius:16px;background:#ff0033;color:#fff;display:grid;place-items:center;font-size:1.6rem;transition:transform .25s}
+.pitch-poster:hover .play{transform:scale(1.12)}
 .phone{width:300px;aspect-ratio:9/16;border-radius:34px;padding:10px;background:linear-gradient(160deg,var(--a),var(--b));box-shadow:0 30px 70px rgba(124,92,255,.35)}
 .phone iframe{width:100%;height:100%;border:0;border-radius:26px;background:#000}
 @media(max-width:900px){.lf-wrap{grid-template-columns:1fr;justify-items:center}.lf-cards{grid-template-columns:1fr;width:100%}.phone{width:min(300px,80vw)}}
@@ -223,7 +248,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
 <div id="progress"></div>
 <nav>
   <div class="container nav-in">
-    <a href="#home" class="logo">Sagorika<span>.</span></a>
+    <a href="#home" class="logo">Sagorika</a>
     <div class="links" id="links">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
@@ -237,7 +262,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
       <a href="#contact">Contact</a>
       <a class="btn primary sm" href="https://drive.google.com/file/d/1hXPpfLKjsj_jjeTeJcMdfPVCn4pU7P7V/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
     </div>
-    <button class="burger" onclick="document.getElementById('links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <button class="burger" onclick="document.getElementById('links').classList.toggle('open')" aria-label="Menu"></button>
   </div>
 </nav>
 
@@ -247,17 +272,20 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
   <div class="container">
     <span class="badge hero-in" style="animation-delay:.1s"><i class="dot"></i> Open to product roles</span>
     <h1 class="hero-in" style="animation-delay:.25s">Sagorika<br><span class="grad-text">Product Manager</span></h1>
-    <p class="lead hero-in" style="animation-delay:.4s">4.7 years shipping products across fintech, logistics, EdTech and AI. Currently building Smart Fuel Cards, FASTag, GPS Vehicle Tracking and AI-powered CRM at <a href="https://trucksup.com/" target="_blank" rel="noopener">TrucksUp</a>, a Ritco Logistics company.</p>
+    <p class="lead hero-in" style="animation-delay:.4s"><b style="color:#fff;font-size:1.25rem">Every product I build starts with a problem nobody wants to touch.</b><br>I dig in, get the team behind it, and push it all the way to launch.<br>And then comes my favourite day: the one where it works,<br>users show up, and the numbers finally smile back.<br><span style="color:#fff">I'm a product girl, and I live for that day.</span></p>
     <div class="cta hero-in" style="animation-delay:.55s">
-      <a class="btn primary" href="#contact">💬 Get in touch</a>
-      <a class="btn" href="https://drive.google.com/file/d/1hXPpfLKjsj_jjeTeJcMdfPVCn4pU7P7V/view?usp=sharing" target="_blank" rel="noopener">📄 View CV</a>
-      <a class="btn" href="https://www.linkedin.com/in/sagorika-rai/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="https://drive.google.com/file/d/1hXPpfLKjsj_jjeTeJcMdfPVCn4pU7P7V/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+      <a class="btn" href="https://www.linkedin.com/in/sagorika-rai/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div class="stats">
-      <div class="stat reveal"><b>4.7 yrs</b><span>Product experience</span></div>
-      <div class="stat reveal"><b>2M+</b><span>App downloads managed</span></div>
-      <div class="stat reveal"><b>110K+</b><span>MAUs scaled</span></div>
-      <div class="stat reveal"><b>3</b><span>Fintech rails launched</span></div>
+    <div class="thinker reveal">
+      <p class="thinker-line">I turn <span id="rot" class="grad-text">messy problems</span> into products people use.</p>
+    </div>
+    <div class="thinks">
+      <div class="think reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><h4>Problem first</h4><p>I fall in love with the user's problem, not the feature list.</p></div>
+      <div class="think reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><h4>Data with a story</h4><p>GA4 drop-offs → a UX revamp → an 18% retention lift.</p></div>
+      <div class="think reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span><h4>AI-native builder</h4><p>I prototype with AI tools to test ideas before sprint one.</p></div>
+      <div class="think reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="22 2 15 22 11 13 2 9 22 2"/><line x1="22" y1="2" x2="11" y2="13"/></svg></span><h4>Zero to launch</h4><p>3 platforms taken live, end to end, in under 12 months.</p></div>
     </div>
   </div>
 </section>
@@ -321,7 +349,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
         <p class="sum">Own live products for India's trucking ecosystem — TrucksUp Max, GPS, fuel cards, FASTag and AI-driven CRM — from requirement to launch and continuous improvement.</p>
         <div class="sec">
           <div class="sub-box">
-            <h4>🚛 TrucksUp Max</h4>
+            <h4>TrucksUp Max</h4>
             <ul>
               <li>Led product development of a fleet owner platform for truck booking, find-load services and fleet operations in one digital ecosystem</li>
               <li>Designed multi-role user access, KYC and approval workflows for fleet owners and their operational teams</li>
@@ -330,7 +358,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
             </ul>
           </div>
           <div class="sub-box gps">
-            <h4>📍 GPS Module</h4>
+            <h4>GPS Module</h4>
             <ul>
               <li>Led product development of GPS purchase, subscription and vehicle-tracking journeys, including GPS orders, installation lifecycle and live vehicle monitoring</li>
               <li>Defined end-to-end workflows covering plan selection, payment, discounts/coupons, installation scheduling, technician assignment and GPS activation</li>
@@ -339,7 +367,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
             </ul>
           </div>
           <div class="sub-box">
-            <h4>⛽ Smart Fuel Cards</h4>
+            <h4>Smart Fuel Cards</h4>
             <ul>
               <li>Launched live Smart Fuel Card platforms for Jio-bp, HPCL and IOCL</li>
               <li>Shipped wallet-based fuel payments, real-time transactions and instant recharge</li>
@@ -348,7 +376,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
             </ul>
           </div>
           <div class="sub-box">
-            <h4>🛣️ FASTag Solutions</h4>
+            <h4>FASTag Solutions</h4>
             <ul>
               <li>Delivered end-to-end FASTag integrations with IDFC First Bank &amp; LivQuik</li>
               <li>Automated toll payments, auto-recharge logic and balance monitoring</li>
@@ -357,7 +385,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
             </ul>
           </div>
           <div class="sub-box">
-            <h4>🤖 AI-Based CRM Systems</h4>
+            <h4>AI-Based CRM Systems</h4>
             <ul>
               <li>Designed AI-enabled CRM models with secure login and role management</li>
               <li>Created dashboards, filters and lead management flows</li>
@@ -365,7 +393,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
             </ul>
           </div>
           <div class="sub-box">
-            <h4>🔌 API Integrations &amp; Stakeholders</h4>
+            <h4>API Integrations &amp; Stakeholders</h4>
             <ul>
               <li>Drove API discussions and integrations with internal tech and external partners</li>
               <li>Mapped partner user journeys against internal system architecture</li>
@@ -396,7 +424,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
             <ul>
               <li>Built job search with apply, bookmark, search, job detail, profile and resume uploads</li>
               <li>Led the redesign and optimization of TimesJobs web + Android</li>
-              <li>Owned roadmap for 1M+ downloads, 30K+ MAUs, 5K+ DAUs at a 4.1★ rating</li>
+              <li>Owned roadmap for 1M+ downloads, 30K+ MAUs, 5K+ DAUs at a 4.1 rating</li>
               <li>Used GA4 behaviour analysis to uncover drop-offs and retention gaps</li>
               <li>Delivered an 18% increase in user retention through a UI/UX revamp</li>
             </ul>
@@ -470,10 +498,10 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
         <h3>Let your fleet make the move</h3>
         <p>TrucksUp Max brings fuel management, toll automation, vehicle tracking, a load board and safety checks into a single place, so fleet owners see every vehicle and every rupee at a glance.</p>
         <div class="feat">
-          <div class="hl"><b>📍 GPS Vehicle Tracking</b>Live location, trip visibility and instant movement updates</div>
-          <div><b>⛽ Smart Fuel</b>IOCL, HPCL and Jio-bp cards</div>
-          <div><b>🛣️ FASTag</b>IDFC First Bank &amp; LivQuik</div>
-          <div><b>🛡️ TU Kawach</b>Vehicle &amp; DL verification, Safety 360</div>
+          <div class="hl"><b>GPS Vehicle Tracking</b>Live location, trip visibility and instant movement updates</div>
+          <div><b>Smart Fuel</b>IOCL, HPCL and Jio-bp cards</div>
+          <div><b>FASTag</b>IDFC First Bank &amp; LivQuik</div>
+          <div><b>TU Kawach</b>Vehicle &amp; DL verification, Safety 360</div>
         </div>
         <div class="gps-note"><i class="pulse"></i> GPS tracking is part of the TU Kawach suite</div>
         <div class="cta" style="margin:24px 0 0">
@@ -523,17 +551,21 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
       <p class="sub" style="margin:auto">I love building products where money and movement meet: payments that settle at the toll plaza, fuel paid for from a wallet, and fleets you can see on a map.</p>
     </div>
     <div class="lf-cards" style="max-width:820px;margin:0 auto 70px">
-      <div class="lf-card reveal"><span class="ic">🚚</span><h4>Logistics</h4><p>Fleet operations, GPS tracking, load boards and vehicle verification.</p></div>
-      <div class="lf-card reveal"><span class="ic">💳</span><h4>Fintech</h4><p>Smart Fuel Cards, FASTag, wallets, cashback and payment flows.</p></div>
+      <div class="lf-card reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><h4>Logistics</h4><p>Fleet operations, GPS tracking, load boards and vehicle verification.</p></div>
+      <div class="lf-card reveal"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span><h4>Fintech</h4><p>Smart Fuel Cards, FASTag, wallets, cashback and payment flows.</p></div>
     </div>
     <div class="head reveal" style="text-align:center;margin-bottom:32px">
       <h2 style="color:#5aa2ff">30 Second Pitch</h2>
       <p class="sub" style="margin:auto">Meet Sagorika in 30 Seconds<br>A quick introduction to my journey from IT/EdTech Products to AI Product Management</p>
     </div>
-    <div class="pitch reveal zoom">
-      <iframe src="https://www.youtube-nocookie.com/embed/f65gjJtRpOs" title="Meet Sagorika in 30 seconds" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="pitch reveal zoom" id="pitch">
+      <a class="pitch-poster" href="https://youtube.com/shorts/f65gjJtRpOs?si=hKP--o9baebmIUIU" target="_blank" rel="noopener" aria-label="Watch on YouTube: Meet Sagorika in 30 seconds">
+        <span class="pp-text"><small>30 SECOND PITCH</small><b>Meet Sagorika</b><em>Tap to watch on YouTube</em></span>
+        <img src="https://i.ytimg.com/vi/f65gjJtRpOs/hqdefault.jpg" alt="" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="play">▶</span>
+      </a>
     </div>
-    <p style="text-align:center;margin-top:20px"><a class="btn" href="https://youtube.com/shorts/f65gjJtRpOs?si=hKP--o9baebmIUIU" target="_blank" rel="noopener">▶ Watch on YouTube ↗</a></p>
+    <p style="text-align:center;margin-top:20px"><a class="btn" href="https://youtube.com/shorts/f65gjJtRpOs?si=hKP--o9baebmIUIU" target="_blank" rel="noopener">Watch on YouTube ↗</a></p>
   </div>
 </section>
 
@@ -566,7 +598,7 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
       <h2>Numbers That Moved</h2>
     </div>
     <div class="impact">
-      <div class="stat reveal"><b>4.1★</b><span>Play Store rating driven on TimesJobs</span></div>
+      <div class="stat reveal"><b>4.1</b><span>Play Store rating driven on TimesJobs</span></div>
       <div class="stat reveal"><b>110K+</b><span>MAUs scaled on the EdTech alert platform</span></div>
       <div class="stat reveal"><b>100K+</b><span>Resumes generated on the AI product</span></div>
       <div class="stat reveal"><b>3</b><span>Platforms launched end-to-end in under 12 months</span></div>
@@ -587,13 +619,13 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
       <p class="sub">Small tools I designed and shipped myself to stay close to the build.</p>
     </div>
     <div class="proj-grid">
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/background-remover/" target="_blank" rel="noopener"><span class="ic">✨</span><h3>AI Tool Background Remover</h3><p>Web app that removes image backgrounds instantly using AI-powered segmentation.</p><div class="chips"><span class="chip">Computer Vision</span><span class="chip">JavaScript</span><span class="chip">Canvas API</span></div><span class="go">View live demo →</span></a>
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/text-to-speech-app/" target="_blank" rel="noopener"><span class="ic">🔊</span><h3>Speech AI Text-to-Speech App</h3><p>Converts written text into natural-sounding speech with voice, pitch and speed control.</p><div class="chips"><span class="chip">Web Speech API</span><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/Smartai-tax-advisor/" target="_blank" rel="noopener"><span class="ic">🧾</span><h3>Fintech Smart AI Tax Advisor</h3><p>A simple tool to calculate ITR with AI assistance and plain-language guidance.</p><div class="chips"><span class="chip">AI Prompting</span><span class="chip">JavaScript</span></div><span class="go">View live demo →</span></a>
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/Cosmic-Insights-Kundali-Life-Dashboard/" target="_blank" rel="noopener"><span class="ic">⭐</span><h3>Cosmic Insights</h3><p>Personalized kundali dashboard blending astrological insight with modern UI.</p><div class="chips"><span class="chip">Dashboard Design</span><span class="chip">Data Viz</span></div><span class="go">View live demo →</span></a>
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/FitFlow/" target="_blank" rel="noopener"><span class="ic">🏋️</span><h3>FitFlow</h3><p>Fitness tracker with personalized workouts and health routine planning.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/QuizMaster/" target="_blank" rel="noopener"><span class="ic">❓</span><h3>QuizMaster</h3><p>Interactive quiz app with instant scoring and gamified progress tracking.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
-      <a class="proj reveal" href="https://sagorikaproduct.github.io/Smart-Calculator/" target="_blank" rel="noopener"><span class="ic">🧮</span><h3>Smart Calculator</h3><p>A lightweight, fast web calculator for everyday math with a clean UI.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/background-remover/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span><h3>AI Tool Background Remover</h3><p>Web app that removes image backgrounds instantly using AI-powered segmentation.</p><div class="chips"><span class="chip">Computer Vision</span><span class="chip">JavaScript</span><span class="chip">Canvas API</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/text-to-speech-app/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></span><h3>Speech AI Text-to-Speech App</h3><p>Converts written text into natural-sounding speech with voice, pitch and speed control.</p><div class="chips"><span class="chip">Web Speech API</span><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/Smartai-tax-advisor/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><h3>Fintech Smart AI Tax Advisor</h3><p>A simple tool to calculate ITR with AI assistance and plain-language guidance.</p><div class="chips"><span class="chip">AI Prompting</span><span class="chip">JavaScript</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/Cosmic-Insights-Kundali-Life-Dashboard/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><h3>Cosmic Insights</h3><p>Personalized kundali dashboard blending astrological insight with modern UI.</p><div class="chips"><span class="chip">Dashboard Design</span><span class="chip">Data Viz</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/FitFlow/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><h3>FitFlow</h3><p>Fitness tracker with personalized workouts and health routine planning.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/QuizMaster/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><h3>QuizMaster</h3><p>Interactive quiz app with instant scoring and gamified progress tracking.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
+      <a class="proj reveal" href="https://sagorikaproduct.github.io/Smart-Calculator/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="12" y1="11" x2="12.01" y2="11"/><line x1="16" y1="11" x2="16.01" y2="11"/><line x1="8" y1="15" x2="8.01" y2="15"/><line x1="12" y1="15" x2="12.01" y2="15"/><line x1="16" y1="15" x2="16.01" y2="15"/></svg></span><h3>Smart Calculator</h3><p>A lightweight, fast web calculator for everyday math with a clean UI.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML5</span></div><span class="go">View live demo →</span></a>
     </div>
   </div>
 </section>
@@ -653,9 +685,9 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:36px 0 50px
       <h2>Let's build something worth using</h2>
       <p class="sub">Whether it's fintech rails, AI products, or product strategy — I'd love to connect. Based in Gurugram, India.</p>
       <div class="cta">
-        <a class="btn primary" href="mailto:sagorikarai2@gmail.com">✉️ sagorikarai2@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/sagorika-rai/" target="_blank" rel="noopener">🔗 LinkedIn</a>
-        <a class="btn" href="https://drive.google.com/file/d/1hXPpfLKjsj_jjeTeJcMdfPVCn4pU7P7V/view?usp=sharing" target="_blank" rel="noopener">📄 View CV</a>
+        <a class="btn primary" href="mailto:sagorikarai2@gmail.com">sagorikarai2@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/sagorika-rai/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://drive.google.com/file/d/1hXPpfLKjsj_jjeTeJcMdfPVCn4pU7P7V/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
       </div>
       <p class="sub" style="margin:0 auto">+91 83681 77839</p>
     </div>
@@ -700,7 +732,7 @@ function end(){
   const w = winner(cells);
   if (!w) return false;
   over = true;
-  statusEl.textContent = w === 'draw' ? "It's a draw!" : (w === 'X' ? 'You win! 🎉' : 'Computer wins!');
+  statusEl.textContent = w === 'draw' ? "It's a draw!" : (w === 'X' ? 'You win!' : 'Computer wins!');
   render(); return true;
 }
 function bestMove(){
